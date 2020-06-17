@@ -231,8 +231,8 @@ cr_input_new_from_uri (const gchar * a_file_uri, enum CREncoding a_enc)
                                 /*we reached eof */
                                 loop = FALSE;
                         } else {
-                                /*a pb occured !! */
-                                cr_utils_trace_debug ("an io error occured");
+                                /*a pb occurred !! */
+                                cr_utils_trace_debug ("an io error occurred");
                                 status = CR_ERROR;
                                 goto cleanup;
                         }
@@ -256,7 +256,7 @@ cr_input_new_from_uri (const gchar * a_file_uri, enum CREncoding a_enc)
                  *we should  free buf here because it's own by CRInput.
                  *(see the last parameter of cr_input_new_from_buf().
                  */
-                buf = NULL ;
+                buf = NULL;
         }
 
  cleanup:
@@ -404,6 +404,8 @@ cr_input_get_nb_bytes_left (CRInput const * a_this)
 enum CRStatus
 cr_input_read_byte (CRInput * a_this, guchar * a_byte)
 {
+        gulong nb_bytes_left = 0;
+
         g_return_val_if_fail (a_this && PRIVATE (a_this)
                               && a_byte, CR_BAD_PARAM_ERROR);
 
@@ -412,6 +414,12 @@ cr_input_read_byte (CRInput * a_this, guchar * a_byte)
 
         if (PRIVATE (a_this)->end_of_input == TRUE)
                 return CR_END_OF_INPUT_ERROR;
+
+        nb_bytes_left = cr_input_get_nb_bytes_left (a_this);
+
+        if (nb_bytes_left < 1) {
+                return CR_END_OF_INPUT_ERROR;
+        }
 
         *a_byte = PRIVATE (a_this)->in_buf[PRIVATE (a_this)->next_byte_index];
 
@@ -477,7 +485,6 @@ cr_input_read_char (CRInput * a_this, guint32 * a_char)
                 if (*a_char == '\n') {
                         PRIVATE (a_this)->end_of_line = TRUE;
                 }
-
         }
 
         return status;
@@ -874,7 +881,7 @@ cr_input_peek_byte2 (CRInput const * a_this, gulong a_offset, gboolean * a_eof)
  *Gets the memory address of the byte located at a given offset
  *in the input stream.
  *
- *Returns the address, otherwise NULL if an error occured.
+ *Returns the address, otherwise NULL if an error occurred.
  */
 guchar *
 cr_input_get_byte_addr (CRInput * a_this, gulong a_offset)
