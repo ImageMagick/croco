@@ -61,7 +61,7 @@ case "$host" in
 esac
 AM_CONDITIONAL(PLATFORM_WIN32, [test "$platform_win32" = "yes"])
 
-GTK_DOC_CHECK([1.0])
+#GTK_DOC_CHECK([1.0])
 
 dnl **************************************************************
 dnl check for the different --enable-option=val  
