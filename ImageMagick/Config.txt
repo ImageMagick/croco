@@ -1,0 +1,12 @@
+[STATIC]
+
+[LICENSE]
+COPYING
+
+[DIRECTORIES]
+src
+
+[INCLUDES]
+glib->.
+glib->glib
+xml->include
