@@ -1,0 +1,16 @@
+EXPORTS
+cr_doc_handler_new
+cr_doc_handler_unref
+cr_parser_destroy
+cr_parser_new_from_buf
+cr_parser_parse
+cr_parser_set_sac_handler
+cr_parser_set_use_core_grammar
+cr_rgb_set_from_name
+cr_selector_ref
+cr_selector_unref
+cr_simple_sel_to_string
+cr_string_peek_raw_str_len
+cr_string_peek_raw_str
+cr_term_to_string
+	
