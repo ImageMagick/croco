@@ -1,12 +1,20 @@
-[STATIC]
+[DYNAMIC_LIBRARY]
 
 [LICENSE]
 COPYING
 
-[DIRECTORIES]
-src
+[EXCLUDES]
+docs\
+tests\
 
-[INCLUDES]
-glib->.
-glib->glib
-xml->include
+[INCLUDE_ARTIFACTS]
+src -> .
+src\libcroco.h -> .
+src\libcroco-config.h -> .
+
+[MODULE_DEFINITION_FILE]
+.ImageMagick\croco.def
+
+[REFERENCES]
+glib
+xml
