@@ -4,7 +4,7 @@
 COPYING
 
 [LICENSE_IDENTIFIER]
-LGPL-2.0-only
+LGPL-2.0-or-later
 
 [EXCLUDES]
 docs\
