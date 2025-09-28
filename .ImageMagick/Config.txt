@@ -1,5 +1,23 @@
 [DYNAMIC_LIBRARY]
 
+[VERSION]
+0.6.13
+
+[RELEASE_DATE]
+2019-04-06
+
+[PRODUCT_NAME]
+libcroco
+
+[COMPANY_NAME]
+Dodji Seketeli
+
+[URL]
+https://gitlab.com/inkscape/libcroco
+
+[COPYRIGHT]
+Copyright (C) 2003-2004 Dodji Seketeli.  All Rights Reserved.
+
 [LICENSE_FILE]
 COPYING
 
